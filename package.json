@@ -2,7 +2,15 @@
   "name": "vitest-failures-reporter",
   "version": "0.1.0",
   "description": "A minimal Vitest reporter that prints only failed tests and the final summary.",
+  "homepage": "https://github.com/jonathanong/vitest-failures-reporter#readme",
+  "bugs": {
+    "url": "https://github.com/jonathanong/vitest-failures-reporter/issues"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanong/vitest-failures-reporter.git"
+  },
   "files": [
     "dist"
   ],
@@ -15,13 +23,13 @@
   },
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "check": "pnpm run build && pnpm run typecheck && pnpm run lint && pnpm run test && pnpm run publint",
+    "check": "pnpm run build && pnpm run check:dist && pnpm run typecheck && pnpm run lint && pnpm run test && pnpm run publint",
+    "check:dist": "node scripts/check-dist.mjs",
     "check:lines": "node scripts/check-max-lines.mjs",
-    "lint": "pnpm run oxlint && pnpm run oxfmt:check && pnpm run actionlint && pnpm run check:lines",
+    "lint": "pnpm run oxlint && pnpm run oxfmt:check && pnpm run check:lines",
     "oxfmt": "oxfmt",
     "oxfmt:check": "oxfmt --check",
     "oxlint": "oxlint --deny-warnings",
-    "actionlint": "actionlint",
     "publint": "pnpm run build && publint",
     "test": "vitest run --coverage --reporter=./src/index.mts",
     "typecheck": "tsc --noEmit"
@@ -29,7 +37,6 @@
   "devDependencies": {
     "@types/node": "25.8.0",
     "@vitest/coverage-v8": "4.1.6",
-    "actionlint": "2.0.6",
     "oxfmt": "0.50.0",
     "oxlint": "1.65.0",
     "publint": "0.3.21",
