@@ -1,6 +1,6 @@
 {
   "name": "vitest-failures-reporter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A minimal Vitest reporter that prints only failed tests and the final summary.",
   "homepage": "https://github.com/jonathanong/vitest-failures-reporter#readme",
   "bugs": {
